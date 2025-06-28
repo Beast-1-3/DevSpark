@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* ========== Background Floating Squares ========== */
+.animated-bg-squares {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-square {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 245, 255, 0.08);
+  border: 1.5px solid rgba(0, 245, 255, 0.4);
+  border-radius: 6px;
+  animation: float 10s ease-in-out infinite alternate, glowShift 8s linear infinite;
+  z-index: 0;
+}
+
+/* Floating movement */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  50% {
+    transform: translateY(20px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(5px);
+  }
+}
+
+/* Glowing animation shift */
+@keyframes glowShift {
+  0% {
+    border-color: #00F5FF;
+    box-shadow: 0 0 6px #00F5FF;
+  }
+  33% {
+    border-color: #8A2BE2;
+    box-shadow: 0 0 8px #8A2BE2;
+  }
+  66% {
+    border-color: #FF6B6B;
+    box-shadow: 0 0 8px #FF6B6B;
+  }
+  100% {
+    border-color: #26D0CE;
+    box-shadow: 0 0 6px #26D0CE;
+  }
+}
+
+/* ========== Avatar Glow Effect ========== */
+.glow-avatar {
+  border: 4px solid #00F5FF;
+  box-shadow: 0 0 10px #00F5FF;
+  animation: glowCycle 6s ease-in-out infinite;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-avatar:hover {
+  border-color: #8A2BE2;
+  box-shadow: 0 0 25px #8A2BE2, 0 0 35px #00F5FF;
+}
+
+/* Avatar Glow Animation Cycle */
+@keyframes glowCycle {
+  0% {
+    border-color: #00F5FF;
+    box-shadow: 0 0 10px #00F5FF;
+  }
+  50% {
+    border-color: #26D0CE;
+    box-shadow: 0 0 20px #26D0CE;
+  }
+  100% {
+    border-color: #8A2BE2;
+    box-shadow: 0 0 25px #8A2BE2;
+  }
+}
